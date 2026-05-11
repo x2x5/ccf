@@ -262,9 +262,6 @@ async function loadData() {
   const res = await fetch('data.json');
   data = await res.json();
   buildGrid();
-  activeDirection = '人工智能';
-  activeType = '会议';
-  document.querySelectorAll('.grid-card.conf')[0].classList.add('active');
   applyFilters();
 }
 
