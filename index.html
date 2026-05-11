@@ -3,45 +3,69 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CCF推荐国际学术会议和期刊目录 (2026年)</title>
+<title>CCF-ABC（2026版）</title>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f5f7fa; color: #333; line-height: 1.5; }
 .container { max-width: 1400px; margin: 0 auto; padding: 20px; }
-.header { text-align: center; margin-bottom: 20px; }
-.header h1 { font-size: 26px; color: #1a1a2e; margin-bottom: 4px; }
-.header .src { font-size: 12px; color: #999; }
-.header .src a { color: #2563eb; }
 
-.filters { background: #fff; border-radius: 12px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,.08); margin-bottom: 16px; }
-.filter-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; margin-bottom: 12px; }
-.filter-row:last-child { margin-bottom: 0; }
-.filter-label { font-size: 13px; font-weight: 600; color: #555; min-width: 60px; flex-shrink: 0; }
-.btn-group { display: flex; flex-wrap: wrap; gap: 4px; }
-.btn { padding: 5px 14px; border: 1px solid #d0d5dd; border-radius: 6px; background: #fff; cursor: pointer; font-size: 13px; color: #333; transition: all .15s; }
-.btn:hover { border-color: #2563eb; color: #2563eb; }
-.btn.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; position: relative; }
+.header h1 { font-size: 28px; flex-shrink: 0; line-height: 1; display: flex; }
+.header h1 span { display: inline-block; }
+.c1 { color: #ef4444; animation: swayLeft 2s ease-in-out infinite; transform-origin: bottom center; }
+.c2 { color: #f59e0b; animation: swayLeft 2s ease-in-out infinite 0.3s; transform-origin: bottom center; }
+.f-letter { color: #3b82f6; position: relative; animation: swayF 2s ease-in-out infinite 0.6s; transform-origin: bottom center; }
+@keyframes swayLeft { 0%, 100% { transform: rotate(0deg) translateY(0); } 25% { transform: rotate(6deg) translateY(-1px); } 50% { transform: rotate(0deg) translateY(0); } 75% { transform: rotate(-6deg) translateY(-1px); } }
+@keyframes swayF { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(4deg); } 50% { transform: rotate(0deg); } 75% { transform: rotate(-4deg); } }
+.header .search-input { flex: 1; max-width: 300px; min-width: 120px; padding: 6px 12px; border: 1px solid #d0d5dd; border-radius: 6px; font-size: 13px; outline: none; }
+.header .search-input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
+.header .src { font-size: 11px; color: #999; position: absolute; top: 20px; right: 20px; }
+.header .src a { color: #999; text-decoration: none; }
+.header .src a:hover { text-decoration: underline; }
 
-.direction-chips { display: flex; flex-wrap: wrap; gap: 6px; }
-.chip { padding: 4px 12px; border-radius: 20px; border: 1px solid #d0d5dd; background: #fff; cursor: pointer; font-size: 12px; transition: all .15s; white-space: nowrap; }
-.chip:hover { border-color: #2563eb; color: #2563eb; }
-.chip.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.btn-group { display: inline-flex; gap: 4px; }
+.btn { padding: 4px 12px; border-radius: 6px; cursor: pointer; font-size: 13px; font-weight: 600; transition: all .15s; border: 1.5px solid transparent; }
+.btn-A { color: #dc2626; border-color: #fca5a5; background: #fff; }
+.btn-A:hover { background: #fef2f2; }
+.btn-A.active { background: #dc2626; color: #fff; border-color: #dc2626; }
+.btn-B { color: #d97706; border-color: #fcd34d; background: #fff; }
+.btn-B:hover { background: #fffbeb; }
+.btn-B.active { background: #d97706; color: #fff; border-color: #d97706; }
+.btn-C { color: #2563eb; border-color: #93c5fd; background: #fff; }
+.btn-C:hover { background: #eff6ff; }
+.btn-C.active { background: #2563eb; color: #fff; border-color: #2563eb; }
 
-.search-row input { flex: 1; min-width: 200px; padding: 8px 14px; border: 1px solid #d0d5dd; border-radius: 8px; font-size: 14px; outline: none; }
-.search-row input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
-
-.publisher-select-wrap { position: relative; min-width: 200px; }
-.publisher-select-wrap input { width: 100%; padding: 5px 12px; border: 1px solid #d0d5dd; border-radius: 6px; font-size: 13px; outline: none; }
-.publisher-select-wrap input:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,.1); }
-.publisher-dropdown { position: absolute; top: 100%; left: 0; right: 0; max-height: 240px; overflow-y: auto; background: #fff; border: 1px solid #d0d5dd; border-radius: 6px; box-shadow: 0 4px 12px rgba(0,0,0,.1); z-index: 100; display: none; }
-.publisher-dropdown.show { display: block; }
-.publisher-dropdown .opt { padding: 6px 12px; cursor: pointer; font-size: 13px; }
-.publisher-dropdown .opt:hover { background: #f0f4ff; }
-.publisher-dropdown .opt.selected { background: #2563eb; color: #fff; }
-.pub-clear { margin-left: 4px; padding: 4px 10px; font-size: 12px; border: 1px solid #d0d5dd; border-radius: 6px; background: #fff; cursor: pointer; }
-.pub-clear:hover { border-color: #ef4444; color: #ef4444; }
-
-.stats { font-size: 13px; color: #666; padding: 8px 0; }
+.dir-grid { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); padding: 16px; margin-bottom: 16px; overflow-x: auto; }
+.grid-row { display: grid; grid-template-columns: 84px repeat(10, 1fr); gap: 8px; align-items: center; margin-bottom: 8px; }
+.grid-row:last-child { margin-bottom: 0; }
+.grid-label { font-size: 12px; color: #666; text-align: center; font-weight: 500; }
+.grid-label-btn { font-size: 12px; text-align: center; font-weight: 600; cursor: pointer; padding: 6px 8px; border-radius: 8px; border: 1.5px solid transparent; transition: all .15s; }
+.grid-label-btn.conf { color: #0f766e; border-color: #5eead4; background: #fff; }
+.grid-label-btn.conf:hover { background: #f0fdfa; }
+.grid-label-btn.conf.active { background: #0d9488; color: #fff; border-color: #0d9488; }
+.grid-label-btn.journal { color: #6d28d9; border-color: #c4b5fd; background: #fff; }
+.grid-label-btn.journal:hover { background: #f5f3ff; }
+.grid-label-btn.journal.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.grid-card { padding: 6px 8px; border-radius: 8px; border: 1px solid #d0d5dd; background: #fff; cursor: pointer; transition: all .15s; text-align: center; }
+.grid-card:hover { border-color: #2563eb; }
+.grid-card .gc-main { font-size: 12px; font-weight: 500; line-height: 1.3; }
+.grid-card .gc-sub { font-size: 10px; color: #888; line-height: 1.2; }
+.grid-card.active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.grid-card.active .gc-sub { color: #bfdbfe; }
+.grid-card.conf { border-color: #5eead4; }
+.grid-card.conf .gc-main { color: #0f766e; }
+.grid-card.conf.active { background: #0d9488; color: #fff; border-color: #0d9488; }
+.grid-card.conf.active .gc-main { color: #fff; }
+.grid-card.conf.active .gc-sub { color: #ccfbf1; }
+.grid-card.conf:hover { border-color: #0d9488; }
+.grid-card.journal { border-color: #c4b5fd; }
+.grid-card.journal .gc-main { color: #6d28d9; }
+.grid-card.journal.active { background: #7c3aed; color: #fff; border-color: #7c3aed; }
+.grid-card.journal.active .gc-main { color: #fff; }
+.grid-card.journal.active .gc-sub { color: #ede9fe; }
+.grid-card.journal:hover { border-color: #7c3aed; }
+.label-conf { color: #0f766e; font-weight: 600; }
+.label-journal { color: #6d28d9; font-weight: 600; }
 
 .table-wrap { background: #fff; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,.08); overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -55,15 +79,16 @@ tbody tr.level-C { border-left: 3px solid #3b82f6; }
 .badge-A { background: #fee2e2; color: #dc2626; }
 .badge-B { background: #fef3c7; color: #d97706; }
 .badge-C { background: #dbeafe; color: #2563eb; }
-.type-badge { font-size: 11px; color: #666; }
+.type-badge-conf { font-size: 12px; font-weight: 600; color: #0d9488; }
+.type-badge-journal { font-size: 12px; font-weight: 600; color: #7c3aed; }
 a { color: #2563eb; text-decoration: none; }
 a:hover { text-decoration: underline; }
 .abbr { font-weight: 600; color: #1a1a2e; }
 
 @media (max-width: 768px) {
-  .filter-row { flex-direction: column; align-items: stretch; }
-  .btn-group { flex-wrap: wrap; }
-  .publisher-select-wrap { min-width: 100%; }
+  .header .search-input { max-width: 100%; }
+  .dir-grid { padding: 10px; }
+  .grid-card { padding: 4px 6px; }
   thead th, tbody td { padding: 6px 8px; font-size: 12px; }
 }
 </style>
@@ -71,56 +96,28 @@ a:hover { text-decoration: underline; }
 <body>
 <div class="container">
   <div class="header">
-    <h1>CCF 评级 2026 版</h1>
-    <p class="src">数据来源参考 <a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener">https://www.ccf.org.cn/Academic_Evaluation/By_category/</a></p>
+    <h1><span class="c1">C</span><span class="c2">C</span><span class="f-letter">F</span></h1>
+    <div class="btn-group" id="levelFilters">
+      <button class="btn btn-A" data-value="A">A</button>
+      <button class="btn btn-B" data-value="B">B</button>
+      <button class="btn btn-C" data-value="C">C</button>
+    </div>
+    <input type="text" class="search-input" id="searchInput" placeholder="🔍 搜索简称 / 全称 / 出版社...">
+    <span class="src"><a href="https://www.ccf.org.cn/Academic_Evaluation/By_category/" target="_blank" rel="noopener">数据来源：2026版推荐目录</a></span>
   </div>
 
-  <div class="filters">
-    <div class="filter-row search-row">
-      <input type="text" id="searchInput" placeholder="🔍 搜索简称 / 全称 / 出版社..." style="flex:1">
-    </div>
-
-    <div class="filter-row">
-      <span class="filter-label">大类</span>
-      <div class="btn-group" id="typeFilters">
-        <button class="btn active" data-value="">全部</button>
-        <button class="btn" data-value="会议">会议</button>
-        <button class="btn" data-value="期刊">期刊</button>
-      </div>
-      <span class="filter-label">研究方向</span>
-      <div class="direction-chips" id="directionFilters"></div>
-    </div>
-
-    <div class="filter-row">
-      <span class="filter-label">等级</span>
-      <div class="btn-group" id="levelFilters">
-        <button class="btn active" data-value="">全部</button>
-        <button class="btn" data-value="A">A类</button>
-        <button class="btn" data-value="B">B类</button>
-        <button class="btn" data-value="C">C类</button>
-      </div>
-      <span class="filter-label">出版社</span>
-      <div class="publisher-select-wrap" id="publisherWrap">
-        <input type="text" id="publisherInput" placeholder="搜索出版社..." autocomplete="off">
-        <div class="publisher-dropdown" id="publisherDropdown"></div>
-      </div>
-      <button class="pub-clear" id="pubClear">清除</button>
-    </div>
-  </div>
-
-  <div class="stats" id="stats"></div>
+  <div class="dir-grid" id="dirGrid"></div>
 
   <div class="table-wrap">
     <table>
       <thead>
         <tr>
-          <th>大类</th>
+          <th>类型</th>
           <th>等级</th>
           <th>研究方向</th>
           <th>简称</th>
           <th>全称</th>
           <th>出版社</th>
-          <th>网址</th>
         </tr>
       </thead>
       <tbody id="tableBody"></tbody>
@@ -129,115 +126,154 @@ a:hover { text-decoration: underline; }
 </div>
 
 <script>
-const DIR_SHORT = {
-  '计算机体系结构/并行与分布计算/存储系统': '体系结构/分布计算/存储系统',
-  '计算机图形学与多媒体': '图形学与多媒体',
-};
+const DIR_ORDER = [
+  { dir: '人工智能', short: '人工智能', conf: 'NeurIPS', journal: 'TPAMI' },
+  { dir: '计算机图形学与多媒体', short: '图形学与多媒体', conf: 'SIGGRAPH', journal: 'TOG' },
+  { dir: '交叉/综合/新兴', short: '交叉综合', conf: 'WWW', journal: 'JACM' },
+  { dir: '网络与信息安全', short: '信息安全', conf: 'CCS', journal: 'TIFS' },
+  { dir: '计算机网络', short: '计算机网络', conf: 'SIGCOMM', journal: 'ToN' },
+  { dir: '人机交互与普适计算', short: '人机交互', conf: 'CHI', journal: 'TOCHI' },
+  { dir: '软件工程/系统软件/程序设计语言', short: '软件工程', conf: 'ICSE', journal: 'TSE' },
+  { dir: '计算机科学理论', short: '计算机理论', conf: 'STOC', journal: 'SICOMP' },
+  { dir: '计算机体系结构/并行与分布计算/存储系统', short: '体系存储', conf: 'ASPLOS', journal: 'TOCS' },
+  { dir: '数据库/数据挖掘/内容检索', short: '数据挖掘', conf: 'SIGMOD', journal: 'TKDE' },
+];
 
-function shortDir(name) {
-  return DIR_SHORT[name] || name;
-}
+const DIR_SHORT = {};
+DIR_ORDER.forEach(d => { DIR_SHORT[d.dir] = d.short; });
+function shortDir(name) { return DIR_SHORT[name] || name; }
 
 let data = [];
 let filtered = [];
 
-const typeFilters = document.querySelectorAll('#typeFilters .btn');
 const levelFilters = document.querySelectorAll('#levelFilters .btn');
-const directionEl = document.getElementById('directionFilters');
 const searchInput = document.getElementById('searchInput');
-const publisherInput = document.getElementById('publisherInput');
-const publisherDropdown = document.getElementById('publisherDropdown');
-const pubClear = document.getElementById('pubClear');
 const tableBody = document.getElementById('tableBody');
-const statsEl = document.getElementById('stats');
+const dirGrid = document.getElementById('dirGrid');
 
+let activeLevels = new Set();
+let activeDirection = '';
 let activeType = '';
-let activeLevel = '';
-let activeDirections = new Set();
-let activePublisher = '';
-let allPublishers = [];
+
+function buildGrid() {
+  const rows = [
+    { label: '研究方向', key: 'dir', class: '' },
+    { label: '代表会议', key: 'conf', class: 'conf' },
+    { label: '代表期刊', key: 'journal', class: 'journal' },
+  ];
+
+  rows.forEach(r => {
+    const row = document.createElement('div');
+    row.className = 'grid-row';
+
+    if (r.key === 'dir') {
+      const label = document.createElement('div');
+      label.className = 'grid-label';
+      label.textContent = r.label;
+      row.appendChild(label);
+    } else {
+      const btn = document.createElement('div');
+      btn.className = 'grid-label-btn ' + r.class;
+      btn.textContent = r.label;
+      btn.addEventListener('click', () => {
+        btn.classList.toggle('active');
+        if (btn.classList.contains('active')) {
+          activeType = r.key === 'conf' ? '会议' : '期刊';
+          activeDirection = '';
+          document.querySelectorAll('.grid-card.conf, .grid-card.journal').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-row:first-child .grid-card').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-label-btn').forEach(b => { if (b !== btn) b.classList.remove('active'); });
+        } else {
+          activeType = '';
+        }
+        applyFilters();
+      });
+      row.appendChild(btn);
+    }
+
+    DIR_ORDER.forEach(d => {
+      const card = document.createElement('div');
+      card.className = 'grid-card' + (r.class ? ' ' + r.class : '');
+      card.dataset.dir = d.dir;
+
+      if (r.key === 'dir') {
+        card.innerHTML = `<div class="gc-main">${d.short}</div>`;
+        card.addEventListener('click', () => {
+          card.classList.toggle('active');
+          if (card.classList.contains('active')) {
+            activeDirection = d.dir;
+            activeType = '';
+            document.querySelectorAll('.grid-row:first-child .grid-card').forEach(c => {
+              if (c !== card) c.classList.remove('active');
+            });
+            document.querySelectorAll('.grid-card.conf, .grid-card.journal').forEach(c => c.classList.remove('active'));
+            document.querySelectorAll('.grid-label-btn').forEach(b => b.classList.remove('active'));
+          } else {
+            activeDirection = '';
+          }
+          applyFilters();
+        });
+      } else if (r.key === 'conf') {
+        card.innerHTML = `<div class="gc-main">${d.conf}</div>`;
+        card.addEventListener('click', () => {
+          const wasActive = card.classList.contains('active');
+          document.querySelectorAll('.grid-card.conf').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-card.journal').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-row:first-child .grid-card').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-label-btn').forEach(b => b.classList.remove('active'));
+          if (!wasActive) {
+            card.classList.add('active');
+            activeDirection = d.dir;
+            activeType = '会议';
+          } else {
+            activeDirection = '';
+            activeType = '';
+          }
+          applyFilters();
+        });
+      } else {
+        card.innerHTML = `<div class="gc-main">${d.journal}</div>`;
+        card.addEventListener('click', () => {
+          const wasActive = card.classList.contains('active');
+          document.querySelectorAll('.grid-card.journal').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-card.conf').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-row:first-child .grid-card').forEach(c => c.classList.remove('active'));
+          document.querySelectorAll('.grid-label-btn').forEach(b => b.classList.remove('active'));
+          if (!wasActive) {
+            card.classList.add('active');
+            activeDirection = d.dir;
+            activeType = '期刊';
+          } else {
+            activeDirection = '';
+            activeType = '';
+          }
+          applyFilters();
+        });
+      }
+
+      row.appendChild(card);
+    });
+
+    dirGrid.appendChild(row);
+  });
+}
 
 async function loadData() {
   const res = await fetch('data.json');
   data = await res.json();
-
-  const dirs = [...new Set(data.map(d => d.direction))];
-  dirs.forEach(dir => {
-    const chip = document.createElement('span');
-    chip.className = 'chip';
-    chip.textContent = shortDir(dir);
-    chip.dataset.value = dir;
-    chip.addEventListener('click', () => {
-      chip.classList.toggle('active');
-      if (chip.classList.contains('active')) {
-        activeDirections.add(dir);
-      } else {
-        activeDirections.delete(dir);
-      }
-      applyFilters();
-    });
-    directionEl.appendChild(chip);
-  });
-
-  allPublishers = [...new Set(data.map(d => d.publisher))].sort();
-  renderPublisherDropdown(allPublishers);
-
+  buildGrid();
+  activeDirection = '人工智能';
+  activeType = '会议';
+  document.querySelectorAll('.grid-card.conf')[0].classList.add('active');
   applyFilters();
 }
-
-function renderPublisherDropdown(publishers) {
-  publisherDropdown.innerHTML = '';
-  publishers.forEach(p => {
-    const div = document.createElement('div');
-    div.className = 'opt' + (p === activePublisher ? ' selected' : '');
-    div.textContent = p || '(空)';
-    div.addEventListener('click', () => {
-      activePublisher = p;
-      publisherInput.value = p;
-      publisherDropdown.classList.remove('show');
-      applyFilters();
-    });
-    publisherDropdown.appendChild(div);
-  });
-}
-
-publisherInput.addEventListener('focus', () => {
-  publisherDropdown.classList.add('show');
-});
-
-publisherInput.addEventListener('input', () => {
-  const q = publisherInput.value.toLowerCase();
-  const filteredPubs = allPublishers.filter(p => p.toLowerCase().includes(q));
-  renderPublisherDropdown(filteredPubs);
-  publisherDropdown.classList.add('show');
-});
-
-document.addEventListener('click', (e) => {
-  if (!document.getElementById('publisherWrap').contains(e.target)) {
-    publisherDropdown.classList.remove('show');
-  }
-});
-
-pubClear.addEventListener('click', () => {
-  activePublisher = '';
-  publisherInput.value = '';
-  applyFilters();
-});
-
-typeFilters.forEach(btn => {
-  btn.addEventListener('click', () => {
-    typeFilters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeType = btn.dataset.value;
-    applyFilters();
-  });
-});
 
 levelFilters.forEach(btn => {
   btn.addEventListener('click', () => {
-    levelFilters.forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    activeLevel = btn.dataset.value;
+    btn.classList.toggle('active');
+    const v = btn.dataset.value;
+    if (btn.classList.contains('active')) activeLevels.add(v);
+    else activeLevels.delete(v);
     applyFilters();
   });
 });
@@ -246,45 +282,52 @@ searchInput.addEventListener('input', applyFilters);
 
 function applyFilters() {
   filtered = data.filter(d => {
+    if (activeDirection && d.direction !== activeDirection) return false;
     if (activeType && d.type !== activeType) return false;
-    if (activeLevel && d.level !== activeLevel) return false;
-    if (activeDirections.size > 0 && !activeDirections.has(d.direction)) return false;
-    if (activePublisher && d.publisher !== activePublisher) return false;
-
+    if (activeLevels.size > 0 && !activeLevels.has(d.level)) return false;
     const q = searchInput.value.trim().toLowerCase();
-    if (q) {
-      return d.abbr.toLowerCase().includes(q) ||
-             d.name.toLowerCase().includes(q) ||
-             d.publisher.toLowerCase().includes(q);
-    }
+    if (q) return d.abbr.toLowerCase().includes(q) || d.name.toLowerCase().includes(q) || d.publisher.toLowerCase().includes(q);
     return true;
   });
+
+  const q = searchInput.value.trim().toLowerCase();
+  if (q) {
+    filtered.sort((a, b) => {
+      const score = d => { if (d.abbr.toLowerCase().includes(q)) return 3; if (d.name.toLowerCase().includes(q)) return 2; if (d.publisher.toLowerCase().includes(q)) return 1; return 0; };
+      return score(b) - score(a);
+    });
+  } else if (activeDirection && !activeType) {
+    const order = { 'A': 0, 'B': 1, 'C': 2, '会议': 0, '期刊': 1 };
+    filtered.sort((a, b) => (order[a.level] * 2 + order[a.type]) - (order[b.level] * 2 + order[b.type]));
+  } else if (activeType) {
+    const order = { 'A': 0, 'B': 1, 'C': 2 };
+    filtered.sort((a, b) => order[a.level] - order[b.level]);
+  } else if (!activeDirection && activeLevels.size === 0 && !q) {
+    const order = { 'A': 0, 'B': 1, 'C': 2, '会议': 0, '期刊': 1 };
+    filtered.sort((a, b) => (order[a.level] * 2 + order[a.type]) - (order[b.level] * 2 + order[b.type]));
+  }
 
   renderTable();
 }
 
 function renderTable() {
   if (filtered.length === 0) {
-    tableBody.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px;color:#999;">没有匹配的条目</td></tr>';
-    statsEl.textContent = '共 0 条';
+    tableBody.innerHTML = '<tr><td colspan="6" style="text-align:center;padding:40px;color:#999;">没有匹配的条目</td></tr>';
     return;
   }
-
   let html = '';
   filtered.forEach(d => {
-    const urlHtml = d.url ? `<a href="${d.url}" target="_blank" rel="noopener">🔗 链接</a>` : '';
+    const nameHtml = d.url ? `<a href="${d.url}" target="_blank" rel="noopener">${d.name}</a>` : d.name;
     html += `<tr class="level-${d.level}">
-      <td><span class="type-badge">${d.type === '会议' ? '📋 会议' : '📘 期刊'}</span></td>
-      <td><span class="badge badge-${d.level}">${d.level}类</span></td>
+      <td><span class="${d.type === '会议' ? 'type-badge-conf' : 'type-badge-journal'}">${d.type}</span></td>
+      <td><span class="badge badge-${d.level}">${d.level}</span></td>
       <td>${shortDir(d.direction)}</td>
       <td class="abbr">${d.abbr || '-'}</td>
-      <td>${d.name}</td>
+      <td>${nameHtml}</td>
       <td>${d.publisher}</td>
-      <td>${urlHtml}</td>
     </tr>`;
   });
   tableBody.innerHTML = html;
-  statsEl.textContent = `共 ${filtered.length} 条 (总 ${data.length} 条)`;
 }
 
 loadData();
